@@ -1,0 +1,11 @@
+---
+# tasks file for ansible-termite
+- name: Make sure .config/termite exists
+  file:
+    path: /home/{{user}}/.config/termite
+    state: directory
+
+- name: Copy termite config
+  template:
+    src: config.j2
+    dest: "/home/{{user}}/.config/termite/config"
